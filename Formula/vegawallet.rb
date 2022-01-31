@@ -4,6 +4,7 @@ class Vegawallet < Formula
   url "https://github.com/vegaprotocol/vegawallet/archive/refs/tags/v0.11.0.tar.gz"
   sha256 "c928373d6a84575107d235525c2f7f98bf2e6cb84f75e7a51de66a02189a35ff"
   license "MIT"
+  revision 1
   head "https://github.com/vegaprotocol/vegawallet.git", branch: "develop"
 
   bottle do
@@ -19,9 +20,8 @@ class Vegawallet < Formula
   end
 
   test do
-    assert_equal(
-      "{\"version\":\"v#{version}\",\"gitHash\":\"unknown\"}"
-      shell_output(system bin/"vegawallet", "version", "--output", "json")
-    )
+    require "json"
+    info = JSON.parse(shell_output("#{bin}/vegawallet version --output json"))
+    assert_equal("v#{version}", info["version"])
   end
 end
