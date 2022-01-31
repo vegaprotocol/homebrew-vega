@@ -19,6 +19,9 @@ class Vegawallet < Formula
   end
 
   test do
-    system bin/"vegawallet", "version"
+    assert_equal(
+      "{\"version\":\"v#{version}\",\"gitHash\":\"unknown\"}"
+      shell_output(system bin/"vegawallet", "version", "--output", "json")
+    )
   end
 end
