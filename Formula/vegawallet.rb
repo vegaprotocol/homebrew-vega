@@ -7,9 +7,9 @@ class Vegawallet < Formula
   head "https://github.com/vegaprotocol/vegawallet.git", branch: "develop"
 
   bottle do
-    root_url "https://github.com/vegaprotocol/homebrew-vega/releases/download/vegawallet-0.14.0"
-    sha256 cellar: :any_skip_relocation, big_sur:      "68fcd46302f2806451eb37edf7e4529e9e3fba6195ab1a88b78b2832c408a41d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b0525ac3763a93f062cb4fe7685057cdd1c09ca5b80d9d4c94698d0182815bb0"
+    root_url "https://github.com/vegaprotocol/homebrew-vega/releases/download/vegawallet-0.14.1"
+    sha256 cellar: :any_skip_relocation, big_sur:      "34c0b06d1657abf9572c87a10597aca9ff76896f6d887929dec1b7d1f277902e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "866c5419d59f89b37724f170860fffd5d98f19e7388bbed86b2bb08c5684c845"
   end
 
   depends_on "go" => :build
