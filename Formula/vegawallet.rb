@@ -1,8 +1,8 @@
 class Vegawallet < Formula
   desc "Command-line tool to manage your Vega Protocol wallet"
   homepage "https://docs.vega.xyz/docs/tools/vega-wallet/cli-wallet"
-  url "https://github.com/vegaprotocol/vegawallet/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "bc6ae1706600f6bb241f164fd0169b0e8fcd5cfad9525814f9616326c5b66eb3"
+  url "https://github.com/vegaprotocol/vegawallet/archive/refs/tags/v0.14.1.tar.gz"
+  sha256 "f1df18114df190aa003d00c95fdbe582c1445d7bf869a24f6339cd130c916a3c"
   license "MIT"
   head "https://github.com/vegaprotocol/vegawallet.git", branch: "develop"
 
