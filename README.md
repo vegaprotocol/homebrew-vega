@@ -10,18 +10,43 @@ First, add the `vega` tap to your Homebrew.
 brew tap vegaprotocol/vega
 ```
 
-## Uploading built bottles
+## Distribute new versions
 
-Wait until the pull request’s checks become green. Then label your pull request with the `publish` label (this is the default label that will trigger the uploading workflow; you can easily change this in workflow file). A new brew pr-pull workflow will be fired up and after a couple of minutes you should observe the PR closed, bottles uploaded and commits pushed to the main branch of your repository.
+### 1. Update the tag and revision
 
-## Tips
+Each formula has a `url` property that points to the repository.
 
-### Update Formula's SHA-256
+Its `tag` parameter should be valued with the tag we are targeting.
 
-The Formula's SHA-256 should be computed on the **tagged** archive got through the Formula's URL.
+Its `revision` parameter should be valued with the commit hash the tag is associated with.
 
-###### MacOS
+### 2. Open a pull request
 
-```sh
-shasum -a 256 <my-archive>
+Open a pull request and wait until the pull request checks become green.
+
+A good name for the branch would be `release/<software>-<version>`.
+
+##### Example
+
+```
+release/vega-0.71.4
+```
+
+##### Warning
+
+**Do not merge the PR yourself.** The merge is handled by the GitHub actions. See the next step for more detail.
+
+### 3. Trigger the release workflow
+
+Once the checks are green, label your pull request with the `publish` label. This label triggers the bottles uploading (`brew pr-pull`) workflow.
+
+After a couple of minutes, the pull request should be closed, the bottles uploaded and commits pushed to the main branch of your repository.
+
+### Pro-tips
+
+#### Linter
+
+You can reformat the file using:
+```
+brew style --fix ./Formula/*.rb
 ```

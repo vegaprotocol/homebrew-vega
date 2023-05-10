@@ -19,7 +19,7 @@ jobs:
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -44,3 +44,7 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
+
+      - name: Post cleanup
+        if: always()
+        run: brew test-bot --only-cleanup-after --verbose
