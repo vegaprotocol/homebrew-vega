@@ -29,7 +29,7 @@ A good name for the branch would be `release/<software>-<version>`.
 ##### Example
 
 ```
-release/vega-0.71.4
+release/vega-0.72.14
 ```
 
 ##### Warning
