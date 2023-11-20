@@ -5,6 +5,12 @@ class Visor < Formula
   license all_of: ["MIT", "BSL-1.0"]
   head "https://github.com/vegaprotocol/vega.git", branch: "develop"
 
+  bottle do
+    root_url "https://github.com/vegaprotocol/homebrew-vega/releases/download/visor-0.73.5"
+    sha256 cellar: :any_skip_relocation, monterey:     "0ad73660ed06a749a04252b06ed9fb7de87aa0af8c11ccf012266467b58f3c9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7fb26c3521709bbc61e3f58eeefd6359a0f574aef78ccbc68f308513bc51bffc"
+  end
+
   depends_on "go@1.20" => :build
 
   def install
